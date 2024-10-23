@@ -1,0 +1,475 @@
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+
+body {
+    margin: 0;
+    width: 100%;
+    height: 60%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    color: white;
+    font-family: 'Press Start 2P', cursive;
+    background-color: #282c34;
+    background-image: url('imagens/fundo.png');
+    background-size: cover;
+    overflow: hidden;
+    user-select: none;
+    position: relative;
+    z-index: 1;
+}
+
+@media only screen and (max-width: 600px) {
+
+}
+
+@media only screen and (max-width: 600px) and (max-width: 900px) {
+
+}
+
+@media only screen and (max-width: 900px) {
+
+}
+
+h1 {
+    width: 50%;
+    margin: 70px auto;
+    padding: 20px;
+    border: 4px solid #252525;
+    background-color: #ffffff;
+    color: rgb(0, 0, 0);
+    text-align: center;
+    font-size: 32px;
+    box-shadow: 6px 6px 0 #494949;
+    position: absolute;
+    top: 10px;
+    left: 50%; 
+    transform: translateX(-50%);
+    font-family: 'Press Start 2P', cursive;
+    z-index: 2;
+}
+
+h5 {
+    width: 50%;
+    margin: 70px auto;
+    padding: 20px;
+    border: 4px solid #252525;
+    background-color: #ffffff;
+    color: rgb(0, 0, 0);
+    text-align: center;
+    font-size: 32px;
+    box-shadow: 6px 6px 0 #494949;
+    position: absolute;
+    top: 10px;
+    left: 50%; 
+    transform: translateX(-50%);
+    font-family: 'Press Start 2P', cursive;
+    z-index: 2;
+}
+
+@keyframes fadeInTitle {
+    from {
+        opacity: 0;
+        transform: scale(0.8);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+
+.game-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 60%;
+    position: relative;
+    z-index: 2;
+}
+
+.duck-image {
+    position: absolute;
+    left: 3%;
+    top: 40%;
+    width: 170px;
+    z-index: 2;
+    animation: fadeInQuestion 1s ease-in-out; 
+    filter: drop-shadow(10px 10px 30px grey);
+}
+
+.duck-dialogue {
+    position: absolute;
+    left: 20%;
+    top: 40%;
+    font-family: 'Press Start 2P', cursive;
+    color: #333;
+    z-index: 1;
+    animation: fadeIn 1s ease-in-out;
+}
+
+.return-menu {
+    margin: 80px;
+    margin-top: 45%;
+    padding: 15px 5px;
+    border: 4px solid #965d14;
+    background-color: #b37429;
+    color: white;
+    border-radius: 0;
+    cursor: pointer;
+    font-size: 18px;
+    display: block;
+    width: 10%;
+    font-family: 'Press Start 2P', cursive;
+    box-shadow: 6px 6px 0 #555;
+    background: linear-gradient(135deg, #b37429 25%, #8d5a1e 25%, #8d5a1e 50%, #b37429 50%);
+    transition: background-position 0.5s ease, transform 0.3s ease;
+    background-size: 200% 100%;
+    background-position: -80% 0;
+    z-index: 2;
+}
+
+.return-menu:hover {
+    background-color: #555;
+    transform: translateY(-5px);
+}
+
+
+.dialogue-box, .modal, .confirmation-modal {
+    width: 50%;
+    margin: 100px auto;
+    padding: 20px;
+    border: 4px solid #333;
+    border-radius: 0;
+    background-color: #f4f4f4;
+    font-family: 'Press Start 2P', cursive;
+    font-size: 18px;
+    color: black;
+    position: fixed;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    box-shadow: 6px 6px 0 #282828;
+    text-align: center;
+    z-index: 3;
+    display: none;
+    overflow-y: auto;
+    max-height: 80vh;
+    line-height: 1.5;
+    animation: fadeIn 1s ease-in-out;
+}
+
+#description-modal p, .confirmation-modal p {
+    font-size: 15px;
+    line-height: 1.5;
+}
+
+#dialogue-text {
+    white-space: pre-wrap;
+    font-size: 18px;
+    user-select: none;
+    line-height: 1.8;
+    animation: fadeInDialogue 0.5s ease-in-out;
+}
+
+@keyframes fadeOutDialogue {
+    from {
+        opacity: 1;
+    }
+    to {
+        opacity: 0;
+    }
+}
+
+.fade-out {
+    animation: fadeOutDialogue 1s forwards;
+}
+
+
+#question-container {
+    width: 50%;
+    margin: 70px auto;
+    padding: 20px;
+    border: 4px solid #252525;
+    background-color: #ffffff;
+    color: rgb(0, 0, 0);
+    text-align: center;
+    font-size: 32px;
+    box-shadow: 6px 6px 0 #494949;
+    position: absolute;
+    top: 120px;
+    left: 50%; 
+    transform: translateX(-50%);
+    font-family: 'Press Start 2P', cursive;
+    z-index: 2;
+    animation: fadeInDialogue 0.5s;
+}
+
+#question-text {
+    font-size: 16px;
+}
+
+.feedback-box {
+    width: 15%;
+    margin: 10px;
+    padding: 20px;
+    border: 4px solid #333;
+    background-color: #f4f4f4;
+    font-family: 'Press Start 2P', cursive;
+    font-size: 18px;
+    color: black;
+    position: absolute;
+    box-shadow: 6px 6px 0 #282828;
+    text-align: center;
+    display: none;
+    line-height: 1.8;
+    top: 190px;
+    left: 40%;
+    z-index: 2;
+}
+
+.correct {
+    color: green;
+    animation: fadeInCorrect 0.5s ease forwards;
+}
+
+.incorrect {
+    color: red;
+    animation: fadeInIncorrect 0.5s ease forwards;
+}
+
+.feedback-box.show {
+    display: block;
+}
+
+@keyframes fadeInFeedback {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeInCorrect {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeInIncorrect {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeInFeedback {
+    from {
+        opacity: 0;
+        transform: scale(0.8);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+
+
+@keyframes fadeInDialogue {
+    from {
+        opacity: 0;
+        transform: scale(0.8);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+.fade-out {
+    animation: fadeOutModal 1s ease forwards;
+}
+
+.fade-in {
+    animation: fadeInModal 1s ease forwards;
+}
+
+@keyframes fadeInModal {
+    from {
+        opacity: 0;
+        transform: translate(-50%, -50%) scale(0.8);
+    }
+    to {
+        opacity: 1;
+        transform: translate(-50%, -50%) scale(1);
+    }
+}
+
+@keyframes fadeOutModal {
+    from {
+        opacity: 1;
+        transform: translate(-50%, -50%) scale(1);
+    }
+    to {
+        opacity: 0;
+        transform: translate(-50%, -50%) scale(0.8);
+    }
+}
+
+button {
+    margin-top: 10px;
+    padding: 15px 70px;
+    border: 4px solid #965d14;
+    background-color: #b37429;
+    color: white;
+    border-radius: 0;
+    cursor: pointer;
+    font-size: 18px;
+    display: block;
+    width: 100%;
+    font-family: 'Press Start 2P', cursive;
+    box-shadow: 6px 6px 0 #555;
+    background: linear-gradient(135deg, #b37429 25%, #8d5a1e 25%, #8d5a1e 50%, #b37429 50%);
+    position: relative;
+    transition: background-position 0.5s ease, transform 0.3s ease;
+    background-size: 200% 100%;
+    background-position: -80% 0;
+}
+
+button:hover {
+    background-position: 100% 0;
+    transform: translateY(-4px);
+}
+
+button1 {
+    margin-top: 10px;
+    padding: 25px 80px;
+    border: 4px solid #965d14;
+    background-color: #b37429;
+    color: white;
+    border-radius: 0;
+    cursor: pointer;
+    font-size: 24px;
+    font: center;
+    display: block;
+    width: 37%;
+    font-family: 'Press Start 2P', cursive;
+    box-shadow: 6px 6px 0 #555;
+    background: linear-gradient(135deg, #b37429 25%, #8d5a1e 25%, #8d5a1e 50%, #b37429 50%);
+    position: relative;
+    transition: background-position 0.5s ease, transform 0.3s ease;
+    background-size: 200% 100%;
+    background-position: -80% 0;
+}
+
+button1:hover {
+    background-position: 100% 0;
+    transform: translateY(-4px);
+}
+
+.clouds {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 200px;
+    background-image: url('imagens/nuvens.png');
+    background-repeat: repeat-x;
+    background-size: contain;
+    animation: moveClouds 30s linear infinite;
+    z-index: 1;
+    user-select: none;
+}
+
+@keyframes moveClouds {
+    from {
+        background-position: 0 0;
+    }
+    to {
+        background-position: -100% 0;
+    }
+}
+
+.hidden {
+    display: none;
+}
+
+@keyframes fadeInInput {
+    from {
+        opacity: 0;
+        transform: scale(0.8);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+@keyframes growInput {
+    from {
+        width: 0;
+        height: 0;
+        opacity: 0;
+    }
+    to {
+        width: 80%;
+        height: auto;
+        opacity: 1;
+    }
+}
+
+.name-input {
+    width: 80%;
+    padding: 10px;
+    border: 4px solid #333;
+    border-radius: 0;
+    background-color: #f4f4f4;
+    color: black;
+    font-family: 'Press Start 2P', cursive;
+    font-size: 16px;
+    box-shadow: 6px 6px 0 #555;
+    transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+    opacity: 0;
+    animation: fadeInInput 0.5s ease forwards;
+    animation: growInput 0.5s ease-in-out forwards;
+}
+
+.name-input:hover,
+.name-input:focus {
+    outline: none;
+    border-color: #965d14;
+    transform: translateY(-2px);
+    box-shadow: 6px 6px 0 #555;
+}
+
+.continue-message {
+    animation: pulse 1s infinite;
+    font-size: 14px;
+    margin-top: 17px;
+    color: #333;
+}
+
+@keyframes pulse {
+    0%, 100% {
+        transform: scale(0.8);
+        opacity: 0.7;
+    }
+    50% {
+        transform: scale(1);
+        opacity: 1;
+    }
+}

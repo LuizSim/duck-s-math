@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Perguntas e Respostas</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="imagens/duck.png" type="image/x-icon">
+</head>
+<body>
+    <h5> <div id="dialogue-text"></div></h5>
+    <div class="clouds"></div>
+    
+    <div id="game-container">
+        <div class="questions-container">
+            <div id="question-container" class="hidden">
+                <p id="question-text"></p>
+                <button id="option1" class="hidden"></button>
+                <button id="option2" class="hidden"></button>
+                <button id="option3" class="hidden"></button>     
+            </div>
+            <div class="feedback-box correct">Resposta Correta!</div>
+                <div class="feedback-box incorrect">Resposta Incorreta!</div>
+                <div id="feedback" class="feedback-container">
+                    <p class="correct hidden">Resposta correta!</p>
+                    <p class="incorrect hidden">Resposta incorreta!</p>
+                </div> 
+        </div>
+    </div>
+    <button class="return-menu">Menu</button>
+    <script src="js/peq.js"></script>
+</body>
+</html>        
