@@ -22,8 +22,7 @@ jobs:
       - name: Install dependencies
         run: |
           python -m pip install --upgrade pip
-          if [ -f "requirements.txt" ]; then pip install -r requirements.txt; fi
-        # Atualiza o pip e instala dependências do requirements.txt (se existir)
+          pip install -r requirements.txt  # Instala as dependências do requirements.txt
 
       - name: Run Python Script
         run: |
