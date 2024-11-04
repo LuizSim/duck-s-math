@@ -135,14 +135,19 @@ function checkAnswer(selectedOption) {
     const currentQuestion = shuffledQuestions[currentQuestionIndex];
     feedback.classList.remove('hidden');
 
+    let acerto;
     if (selectedOption === currentQuestion.answer) {
         feedback.innerText = "Correto!";
         feedback.className = "feedback-box correct";
         score += 20;
+        acerto = "Correto";
     } else {
         feedback.innerText = "Incorreto!";
         feedback.className = "feedback-box incorrect";
+        acerto = "Incorreto";
     }
+
+    sendResponseToServer(currentQuestion.question, currentQuestion.options[currentQuestion.answer], currentQuestion.options[selectedOption], score);
 
     feedback.style.display = 'block';
     
@@ -163,6 +168,36 @@ function displayFinalScore() {
     feedback.innerText = `Fim das perguntas! Sua pontuação final é: ${score} pontos`;
     feedback.className = "feedback-box correct";
     feedback.style.display = 'block';
+
+    // Chama o servidor para gerar o arquivo Excel quando o jogo terminar
+    fetch('http://127.0.0.1:5000/')
+        .then(response => response.json())
+        .then(data => {
+            if (data.message === "Arquivo Excel gerado com sucesso") {
+                console.log("Planilha gerada com sucesso:", data.file_path);
+            }
+        })
+        .catch(error => console.error("Erro ao gerar planilha:", error));
+}
+
+function sendResponseToServer(question, correctAnswer, playerAnswer, score) {
+    fetch('http://127.0.0.1:5000/', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+            question: question,
+            correct_answer: correctAnswer,
+            player_answer: playerAnswer,
+            score: score
+        })
+    })
+    .then(response => response.json())
+    .then(data => {
+        console.log('Resposta registrada com sucesso:', data);
+    })
+    .catch(error => console.error('Erro ao registrar a resposta:', error));
 }
 
 const returnMenuButton = document.querySelector('.return-menu');
