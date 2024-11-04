@@ -3,8 +3,8 @@ name: Run Python Script
 on:
   push:
     branches:
-      - main  # Executa o script quando houver um push na branch 'main'
-  workflow_dispatch:  # Permite a execução manual do workflow na interface do GitHub
+      - main
+  workflow_dispatch:
 
 jobs:
   run-python-script:
@@ -12,18 +12,18 @@ jobs:
 
     steps:
       - name: Check out the repository
-        uses: actions/checkout@v3  # Clona o repositório na máquina virtual
+        uses: actions/checkout@v3
 
       - name: Set up Python
-        uses: actions/setup-python@v4  # Configura o ambiente Python
+        uses: actions/setup-python@v4 
         with:
-          python-version: '3.x'  # Você pode especificar uma versão específica do Python, por exemplo, '3.9'
+          python-version: '3.x'
 
       - name: Install dependencies
         run: |
           python -m pip install --upgrade pip
-          pip install -r requirements.txt  # Instala as dependências do requirements.txt
+          pip install -r requirements.txt
 
       - name: Run Python Script
         run: |
-          python server.py  # Executa o script Python server.py
+          python server.py 
