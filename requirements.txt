@@ -1,4 +1,1 @@
-Flask
-Flask-Cors
-pandas
-openpyxl
+pip install flask flask-cors pandas openpyxl
